@@ -75,14 +75,14 @@
                     <label>Gender</label></br>
                     <div class="form-check-inline">
                         <input class="form-check-input" type="radio" name="gender" id="exampleRadios1"
-                               th:checked="${emp.gender == 0}" th:value="0">
+                               th:checked="${emp!=null}?${emp.gender == 0}" th:value="0">
                         <label class="form-check-label" for="exampleRadios1" >
                             女
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <input class="form-check-input" type="radio" name="gender" id="exampleRadios2"
-                               th:checked="${emp.gender == 1}" th:value="1">
+                               th:checked="${emp!=null}?${emp.gender == 1}" th:value="1">
                         <label class="form-check-label" for="exampleRadios2" >
                             男
                         </label>
@@ -93,7 +93,7 @@
                     <select class="form-control" id="exampleFormControlSelect1"
                             name="department.id">
                         <option th:each="dept:${departments}"
-                                th:selected="${dept.id == emp.department.id}"
+                                th:selected="${emp!=null}?${dept.id == (emp.department.id != null)}"
                                 th:value="${dept.id}"
                                 th:text="${dept.departmentName}"></option>
                     </select>

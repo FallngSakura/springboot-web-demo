@@ -71,4 +71,12 @@ public class EmpController {
         employeeDao.save(employee);
         return "redirect:/emps ";
     }
+
+    @GetMapping("/remove/{id}")
+    public String removeEmp(@PathVariable Integer id){
+        employeeDao.delete(id);
+        return "redirect:/emps ";
+    }
+
 }
+
